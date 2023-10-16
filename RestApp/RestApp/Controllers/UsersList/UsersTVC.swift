@@ -11,9 +11,13 @@ class UsersTVC: UITableViewController {
     
     var users: [User] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
         fetchUsers()
+    }
+    
+    
+    @IBAction func addUser(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addUser", sender: nil)
     }
     
     // MARK: - Table view data source
@@ -31,13 +35,28 @@ class UsersTVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { true }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let userId = users[indexPath.row].id
+            NetworkService.deleteUser(userId: userId) { [weak self] in
+                self?.users.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+
+    
      // MARK: - Navigation
-     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         guard let detailVC = segue.destination as? DetailVC,
-         let indexPath = tableView.indexPathForSelectedRow else { return }
-         detailVC.user = users[indexPath.row]
-     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let stor = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = stor.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     private func fetchUsers() {
         guard let usersURL = ApiConstants.usersURL else { return }
