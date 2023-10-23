@@ -26,16 +26,6 @@ class PhotosCVC: UICollectionViewController {
         collectionView.collectionViewLayout = layout
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
 
@@ -62,4 +52,36 @@ class PhotosCVC: UICollectionViewController {
             }
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let contextMenu = UIContextMenuConfiguration(identifier: nil,
+                                                     previewProvider: nil) { _ in
+            
+            let delete = UIAction(title: "Delete",
+                                  image: UIImage(systemName: "trash.slash"),
+                                  attributes: .destructive) { _ in
+                print("Delete")
+                let photoId = self.photos[indexPath.row].id
+                NetworkService.deleteImage(photoId: photoId) { [weak self] in
+                    self?.photos.remove(at: indexPath.row)
+                    collectionView.deleteItems(at: [indexPath])
+                }
+            }
+            
+            return UIMenu(title: "",
+                          image: nil,
+                          identifier: nil,
+                          options: UIMenu.Options.displayInline,
+                          children: [delete])
+        }
+        return contextMenu
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        let vc = PhotoVC()
+        vc.photo = photo
+        self.present(vc, animated: true)
+    }
+    
 }

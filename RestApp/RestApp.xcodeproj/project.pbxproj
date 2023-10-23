@@ -29,6 +29,8 @@
 		C7C6692C2AE074210009295D /* PhotoCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C6692A2AE074210009295D /* PhotoCVCell.xib */; };
 		C7CEE8502ADB2D7B0009F10A /* PostFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7CEE84F2ADB2D7B0009F10A /* PostFlow.storyboard */; };
 		C7CEE8522ADB2DAE0009F10A /* AlbumsAndPhotosFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7CEE8512ADB2DAE0009F10A /* AlbumsAndPhotosFlow.storyboard */; };
+		C7D2AE622AE6F2EF00AC9F98 /* Cache Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2AE612AE6F2EF00AC9F98 /* Cache Manager.swift */; };
+		C7D2AE652AE6F3C600AC9F98 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D2AE642AE6F3C600AC9F98 /* PhotoVC.swift */; };
 		C7F0CBAF2ADC0C3300B4F0EB /* PostsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F0CBAE2ADC0C3300B4F0EB /* PostsTVC.swift */; };
 		C7F0CBB12ADC0C7500B4F0EB /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F0CBB02ADC0C7500B4F0EB /* NewPostVC.swift */; };
 		C7F0CBB42ADC0F3D00B4F0EB /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C7F0CBB32ADC0F3D00B4F0EB /* SwiftyJSON */; };
@@ -68,6 +70,8 @@
 		C7C6692A2AE074210009295D /* PhotoCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCVCell.xib; sourceTree = "<group>"; };
 		C7CEE84F2ADB2D7B0009F10A /* PostFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostFlow.storyboard; sourceTree = "<group>"; };
 		C7CEE8512ADB2DAE0009F10A /* AlbumsAndPhotosFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumsAndPhotosFlow.storyboard; sourceTree = "<group>"; };
+		C7D2AE612AE6F2EF00AC9F98 /* Cache Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache Manager.swift"; sourceTree = "<group>"; };
+		C7D2AE642AE6F3C600AC9F98 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		C7F0CBAE2ADC0C3300B4F0EB /* PostsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTVC.swift; sourceTree = "<group>"; };
 		C7F0CBB02ADC0C7500B4F0EB /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
 		C7F0CBBC2ADC192400B4F0EB /* AlbumsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTVC.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				C7F0CBAD2ADC0BD700B4F0EB /* Posts */,
 				C7F0CBBB2ADC18E100B4F0EB /* Albums */,
 				C7C669252AE072E90009295D /* Photos */,
+				C7D2AE632AE6F38900AC9F98 /* Photo */,
 				C7F0CBC62ADC1D7300B4F0EB /* ToDo-s */,
 			);
 			path = Controllers;
@@ -211,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				C75EE2912ADD6B87008387FB /* NetworkService.swift */,
+				C7D2AE612AE6F2EF00AC9F98 /* Cache Manager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +237,14 @@
 				C7C6692A2AE074210009295D /* PhotoCVCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C7D2AE632AE6F38900AC9F98 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C7D2AE642AE6F3C600AC9F98 /* PhotoVC.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		C7F0CBAD2ADC0BD700B4F0EB /* Posts */ = {
@@ -350,6 +364,7 @@
 				C7F0CBC32ADC1B8000B4F0EB /* ToDoModel.swift in Sources */,
 				C732DAD82AD6E6F500B9CC8E /* AppDelegate.swift in Sources */,
 				C75EE2922ADD6B87008387FB /* NetworkService.swift in Sources */,
+				C7D2AE622AE6F2EF00AC9F98 /* Cache Manager.swift in Sources */,
 				C7F0CBAF2ADC0C3300B4F0EB /* PostsTVC.swift in Sources */,
 				C75EE2982ADDB1A6008387FB /* CreateUserVC.swift in Sources */,
 				C732DAF82AD7210C00B9CC8E /* UsersTVC.swift in Sources */,
@@ -361,6 +376,7 @@
 				C7F0CBC12ADC1B6F00B4F0EB /* AlbumModel.swift in Sources */,
 				C732DB002AD743ED00B9CC8E /* DetailVC.swift in Sources */,
 				C7C6692B2AE074210009295D /* PhotoCVCell.swift in Sources */,
+				C7D2AE652AE6F3C600AC9F98 /* PhotoVC.swift in Sources */,
 				C7F0CBBD2ADC192400B4F0EB /* AlbumsTVC.swift in Sources */,
 				C7F0CBC82ADC1E4800B4F0EB /* ToDoTVC.swift in Sources */,
 				C732DAF52AD720C600B9CC8E /* ImageVC.swift in Sources */,
