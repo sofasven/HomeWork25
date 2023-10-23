@@ -21,7 +21,7 @@ class CreateNewToDoVC: UIViewController {
         if let userId = user?.id,
            let title = titleTF.text
         {
-            let completed = completedSC.selectedSegmentIndex == 0 ? true : false
+            let completed = completedSC.selectedSegmentIndex == 0
             print(completed)
             let parameters: Parameters = ["userId": userId,
                                           "title": title,
