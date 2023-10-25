@@ -35,14 +35,6 @@ class NetworkService {
         }
     }
     
-    static func deleteImage(photoId: Int, callBack: @escaping () -> ()) {
-        let urlPath = "\(ApiConstants.photosPath)/\(photoId)"
-        AF.request(urlPath, method: .delete, encoding: JSONEncoding.default)
-            .response { response in
-                callBack()
-            }
-    }
-    
     static func fetchAlbums(userID: Int, callback: @escaping (_ result: [Album]?, _ error: Error?) -> ()) {
         
         let urlPath = "\(ApiConstants.albumPath)?userId=\(userID)"
